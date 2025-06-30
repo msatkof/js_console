@@ -8,20 +8,24 @@ personalMovieDB = {
     privat: false
 };
 
-// const a = prompt("Последний просмотренный фильм?", ""),
-//     b = filmRating = prompt("Как вы оцение фильм?", ""),
-//     c = prompt("Последний просмотренный фильм?", ""),
-//     d = filmRating = prompt("Как вы оцение фильм?", "");
+function userQuetionare() {
+    for (let i = 0; i < 2; i++) {
+        let a = prompt("Последний просмотренный фильм?", ""),
+            b = prompt("Как вы оцение фильм?", ""),
+            aLength = a.length,
+            bLength = b.length;
 
-// personalMovieDB.movies[a] = b;
-// personalMovieDB.movies[c] = d;
+        if (aLength > 0 && aLength <= 50 && bLength > 0 && bLength <= 50) {
+            personalMovieDB.movies[a] = b;
+        } else {
+            console.log("ValidationError");
+            userQuetionare();
+        }
 
-let lastWatchedMFilm = prompt("Последний просмотренный фильм?", "")
-let filmRating = prompt("Как вы оцение фильм?", "")
-personalMovieDB.movies[lastWatchedMFilm] = filmRating;
+    }
+}
 
-lastWatchedMFilm = prompt("Последний просмотренный фильм?", "")
-filmRating = prompt("Как вы оцение фильм?", "")
-personalMovieDB.movies[lastWatchedMFilm] = filmRating;
+userQuetionare();
 
 console.log(personalMovieDB);
+
